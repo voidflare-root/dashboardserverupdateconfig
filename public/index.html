@@ -1,120 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN Server Panel</title>
+<title>PIYUSH VPN GEN</title>
 
 <style>
-
-body{
-background:#0b0614;
-font-family:Arial;
-color:white;
-padding:20px;
-}
-
-.box{
-max-width:400px;
-margin:auto;
-background:#14091f;
-padding:20px;
-border-radius:20px;
-border:1px solid #ff2bd6;
-}
-
-h1{
-text-align:center;
-}
-
-textarea{
-width:100%;
-height:250px;
-background:#1a1026;
-color:#00ffcc;
-border:none;
-padding:15px;
-border-radius:15px;
-margin-top:15px;
-font-size:14px;
-}
-
-button{
-width:100%;
-padding:15px;
-margin-top:15px;
-border:none;
-border-radius:15px;
-background:linear-gradient(90deg,#ff2bd6,#7b2cff);
-color:white;
-font-weight:bold;
-font-size:16px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-top:15px;
-border:none;
-border-radius:12px;
-background:#1a1026;
-color:#00ffcc;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:linear-gradient(160deg,#050014,#18002e,#050014);min-height:100vh;display:flex;justify-content:center;align-items:center;color:white;padding:20px}
+.phone{width:360px;min-height:720px;background:#0b0614;border-radius:35px;padding:20px;border:2px solid #ff2bd6;box-shadow:0 0 35px #ff2bd6}
+.page{display:none}.active{display:block}
+.header{text-align:center;margin-top:15px}
+.logo{width:95px;height:95px;margin:auto;border-radius:50%;background:linear-gradient(135deg,#ff2bd6,#7b2cff);display:flex;justify-content:center;align-items:center;font-size:42px;box-shadow:0 0 25px #ff2bd6}
+h1{margin-top:16px;font-size:24px}.sub{margin-top:5px;color:#b8a8c9;font-size:14px}
+.card{margin-top:25px;background:#14091f;border:1px solid #ff2bd6;border-radius:24px;padding:18px;box-shadow:0 0 18px #441155}
+.row{display:flex;justify-content:space-between;margin:14px 0;font-size:15px}.value{color:#00ffcc}
+.raw-box{margin-top:18px;background:#0b0614;border:1px solid #ff2bd6;border-radius:18px;padding:14px}
+.raw-title{color:#ff4fe0;margin-bottom:10px;font-size:14px}
+.raw-input{width:100%;padding:13px;border:none;outline:none;border-radius:14px;background:#1a1026;color:#00ffcc;font-size:12px}
+.btn{display:block;margin-top:20px;text-align:center;background:linear-gradient(90deg,#ff2bd6,#7b2cff);color:white;padding:15px;border-radius:18px;font-weight:bold;box-shadow:0 0 18px #ff2bd6;border:none;width:100%}
+.server{margin-top:20px;background:#0f0718;border-radius:20px;padding:16px;border:1px solid #2d1b3d}
+.server h3{color:#ff4fe0;margin-bottom:10px}
+.server p{margin:5px 0;color:#ddd;font-size:13px;word-break:break-all;white-space:pre-wrap}
+textarea{width:100%;height:330px;background:#1a1026;color:#00ffcc;border:none;outline:none;padding:15px;border-radius:18px;margin-top:15px;font-size:13px;resize:none;white-space:pre-wrap}
+.button-row{display:flex;gap:10px;margin-top:15px}
+.msg{text-align:center;margin-top:15px;color:#00ff99;font-size:14px}
+.footer{text-align:center;color:#777;margin-top:25px;font-size:12px}
 </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="phone">
 
-<h1>VPN SERVER PANEL</h1>
+<div id="homePage" class="page active">
 
-<p>RAW LINK</p>
+<div class="header">
+<div class="logo">🛡️</div>
+<h1>PIYUSH VPN GEN</h1>
+<p class="sub">Server Update Panel</p>
+</div>
 
-<input type="text" id="rawlink" readonly>
+<div class="card">
+<div class="row"><span>Config Version</span><span class="value">1.0</span></div>
+<div class="row"><span>Status</span><span class="value">Online</span></div>
 
-<p style="margin-top:20px;">JSON DATA</p>
+<div class="raw-box">
+<p class="raw-title">RAW LINK</p>
+<input type="text" class="raw-input" id="rawLink" readonly>
+</div>
 
-<textarea id="jsonbox">
-{
+<button class="btn" onclick="openEditor()">OPEN JSON FILE</button>
+</div>
+
+<div class="server">
+<h3>🇮🇳 INDIA SERVER CONFIG</h3>
+<p id="serverConfig">No config added</p>
+</div>
+
+<div class="footer">© 2026 PIYUSH VPN GEN</div>
+</div>
+
+<div id="editorPage" class="page">
+
+<div class="header">
+<div class="logo">📄</div>
+<h1>CONFIG UPDATE</h1>
+<p class="sub">Paste any VPN config format</p>
+</div>
+
+<div class="card">
+
+<div class="raw-box">
+<p class="raw-title">RAW LINK</p>
+<input type="text" class="raw-input" id="editorRaw" readonly>
+</div>
+
+<textarea id="configBox" placeholder="Yaha koi bhi VPN config paste karo..."></textarea>
+
+<div class="button-row">
+<button class="btn" onclick="copyConfig()">COPY</button>
+<button class="btn" onclick="updateConfig()">UPDATE</button>
+</div>
+
+<button class="btn" onclick="backHome()">BACK</button>
+
+<p class="msg" id="msg"></p>
+
+</div>
+</div>
+
+</div>
+
+<script>
+let raw = window.location.origin + "/servers.json";
+
+document.getElementById("rawLink").value = raw;
+document.getElementById("editorRaw").value = raw;
+
+let defaultConfig = `{
   "config_version":"1.0",
   "servers":[
     {
       "name":"INDIA-1",
       "host":"example.com",
-      "port":"443"
+      "port":"443",
+      "payload":"GET / HTTP/1.1[crlf]Host: example.com[crlf][crlf]"
     }
   ]
-}
-</textarea>
+}`;
 
-<button onclick="openJson()">
-OPEN JSON FILE
-</button>
+let saved = localStorage.getItem("vpn_config_data");
 
-</div>
-
-<script>
-
-document.getElementById("rawlink").value =
-window.location.origin + "/servers.json";
-
-function openJson(){
-
-let data =
-document.getElementById("jsonbox").value;
-
-let blob =
-new Blob([data], {type:"application/json"});
-
-let url =
-URL.createObjectURL(blob);
-
-window.open(url);
-
+if(saved){
+  document.getElementById("configBox").value = saved;
+  document.getElementById("serverConfig").innerText = saved;
+}else{
+  document.getElementById("configBox").value = defaultConfig;
+  document.getElementById("serverConfig").innerText = defaultConfig;
 }
 
+function openEditor(){
+  document.getElementById("homePage").classList.remove("active");
+  document.getElementById("editorPage").classList.add("active");
+}
+
+function backHome(){
+  document.getElementById("editorPage").classList.remove("active");
+  document.getElementById("homePage").classList.add("active");
+}
+
+function updateConfig(){
+  let data = document.getElementById("configBox").value;
+
+  localStorage.setItem("vpn_config_data", data);
+  document.getElementById("serverConfig").innerText = data;
+
+  document.getElementById("msg").style.color = "#00ff99";
+  document.getElementById("msg").innerText = "✅ CONFIG UPDATED SUCCESSFULLY";
+}
+
+function copyConfig(){
+  let data = document.getElementById("configBox").value;
+
+  navigator.clipboard.writeText(data);
+
+  document.getElementById("msg").style.color = "#00ff99";
+  document.getElementById("msg").innerText = "✅ CONFIG COPIED SUCCESSFULLY";
+}
 </script>
 
 </body>
