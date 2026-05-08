@@ -16,12 +16,12 @@ h1{margin-top:16px;font-size:24px}.sub{margin-top:5px;color:#b8a8c9;font-size:14
 .row{display:flex;justify-content:space-between;margin:14px 0;font-size:15px}.value{color:#00ffcc}
 .raw-box{margin-top:18px;background:#0b0614;border:1px solid #ff2bd6;border-radius:18px;padding:14px}
 .raw-title{color:#ff4fe0;margin-bottom:10px;font-size:14px}
-.raw-input{width:100%;padding:13px;border:none;outline:none;border-radius:14px;background:#1a1026;color:#00ffcc;font-size:12px}
-.btn{display:block;margin-top:20px;text-align:center;background:linear-gradient(90deg,#ff2bd6,#7b2cff);color:white;padding:15px;border-radius:18px;font-weight:bold;box-shadow:0 0 18px #ff2bd6;border:none;width:100%}
+.raw-input,.pass-input{width:100%;padding:13px;border:none;outline:none;border-radius:14px;background:#1a1026;color:#00ffcc;font-size:12px}
+.btn{display:block;margin-top:14px;text-align:center;background:linear-gradient(90deg,#ff2bd6,#7b2cff);color:white;padding:14px;border-radius:18px;font-weight:bold;box-shadow:0 0 18px #ff2bd6;border:none;width:100%}
 .server{margin-top:20px;background:#0f0718;border-radius:20px;padding:16px;border:1px solid #2d1b3d}
 .server h3{color:#ff4fe0;margin-bottom:10px}
-.server p{margin:5px 0;color:#ddd;font-size:13px;word-break:break-all;white-space:pre-wrap}
-textarea{width:100%;height:330px;background:#1a1026;color:#00ffcc;border:none;outline:none;padding:15px;border-radius:18px;margin-top:15px;font-size:13px;resize:none;white-space:pre-wrap}
+.config-small{height:120px;overflow:auto;background:#1a1026;border-radius:14px;padding:12px;color:#ddd;font-size:12px;word-break:break-all;white-space:pre-wrap}
+textarea{width:100%;height:310px;background:#1a1026;color:#00ffcc;border:none;outline:none;padding:15px;border-radius:18px;margin-top:15px;font-size:13px;resize:none;white-space:pre-wrap}
 .button-row{display:flex;gap:10px;margin-top:15px}
 .msg{text-align:center;margin-top:15px;color:#00ff99;font-size:14px}
 .footer{text-align:center;color:#777;margin-top:25px;font-size:12px}
@@ -33,66 +33,80 @@ textarea{width:100%;height:330px;background:#1a1026;color:#00ffcc;border:none;ou
 <div class="phone">
 
 <div id="homePage" class="page active">
+  <div class="header">
+    <div class="logo">🛡️</div>
+    <h1>PIYUSH VPN GEN</h1>
+    <p class="sub">Server Update Panel</p>
+  </div>
 
-<div class="header">
-<div class="logo">🛡️</div>
-<h1>PIYUSH VPN GEN</h1>
-<p class="sub">Server Update Panel</p>
+  <div class="card">
+    <div class="row"><span>Config Version</span><span class="value">1.0</span></div>
+    <div class="row"><span>Status</span><span class="value">Online</span></div>
+
+    <div class="raw-box">
+      <p class="raw-title">RAW LINK</p>
+      <input type="text" class="raw-input" id="rawLink" readonly>
+      <button class="btn" onclick="copyRaw()">COPY RAW LINK</button>
+    </div>
+
+    <button class="btn" onclick="openPassword()">OPEN JSON FILE</button>
+    <p class="msg" id="homeMsg"></p>
+  </div>
+
+  <div class="server">
+    <h3>🇮🇳 INDIA SERVER CONFIG</h3>
+    <div class="config-small" id="serverConfig">No config added</div>
+  </div>
+
+  <div class="footer">© 2026 PIYUSH VPN GEN</div>
 </div>
 
-<div class="card">
-<div class="row"><span>Config Version</span><span class="value">1.0</span></div>
-<div class="row"><span>Status</span><span class="value">Online</span></div>
+<div id="passwordPage" class="page">
+  <div class="header">
+    <div class="logo">🔐</div>
+    <h1>PASSWORD</h1>
+    <p class="sub">Enter password to edit config</p>
+  </div>
 
-<div class="raw-box">
-<p class="raw-title">RAW LINK</p>
-<input type="text" class="raw-input" id="rawLink" readonly>
-</div>
-
-<button class="btn" onclick="openEditor()">OPEN JSON FILE</button>
-</div>
-
-<div class="server">
-<h3>🇮🇳 INDIA SERVER CONFIG</h3>
-<p id="serverConfig">No config added</p>
-</div>
-
-<div class="footer">© 2026 PIYUSH VPN GEN</div>
+  <div class="card">
+    <input type="password" class="pass-input" id="passwordBox" placeholder="Enter password">
+    <button class="btn" onclick="checkPassword()">CONFIRM</button>
+    <button class="btn" onclick="backHome()">BACK</button>
+    <p class="msg" id="passMsg"></p>
+  </div>
 </div>
 
 <div id="editorPage" class="page">
+  <div class="header">
+    <div class="logo">📄</div>
+    <h1>CONFIG UPDATE</h1>
+    <p class="sub">Paste any VPN config format</p>
+  </div>
 
-<div class="header">
-<div class="logo">📄</div>
-<h1>CONFIG UPDATE</h1>
-<p class="sub">Paste any VPN config format</p>
-</div>
+  <div class="card">
+    <div class="raw-box">
+      <p class="raw-title">RAW LINK</p>
+      <input type="text" class="raw-input" id="editorRaw" readonly>
+      <button class="btn" onclick="copyRaw()">COPY RAW LINK</button>
+    </div>
 
-<div class="card">
+    <textarea id="configBox" placeholder="Yaha koi bhi VPN config paste karo..."></textarea>
 
-<div class="raw-box">
-<p class="raw-title">RAW LINK</p>
-<input type="text" class="raw-input" id="editorRaw" readonly>
-</div>
+    <div class="button-row">
+      <button class="btn" onclick="copyConfig()">COPY</button>
+      <button class="btn" onclick="updateConfig()">UPDATE</button>
+    </div>
 
-<textarea id="configBox" placeholder="Yaha koi bhi VPN config paste karo..."></textarea>
-
-<div class="button-row">
-<button class="btn" onclick="copyConfig()">COPY</button>
-<button class="btn" onclick="updateConfig()">UPDATE</button>
-</div>
-
-<button class="btn" onclick="backHome()">BACK</button>
-
-<p class="msg" id="msg"></p>
-
-</div>
+    <button class="btn" onclick="backHome()">BACK</button>
+    <p class="msg" id="msg"></p>
+  </div>
 </div>
 
 </div>
 
 <script>
 let raw = window.location.origin + "/servers.json";
+let password = "ghostxtg";
 
 document.getElementById("rawLink").value = raw;
 document.getElementById("editorRaw").value = raw;
@@ -119,33 +133,53 @@ if(saved){
   document.getElementById("serverConfig").innerText = defaultConfig;
 }
 
-function openEditor(){
+function showPage(pageId){
   document.getElementById("homePage").classList.remove("active");
-  document.getElementById("editorPage").classList.add("active");
+  document.getElementById("passwordPage").classList.remove("active");
+  document.getElementById("editorPage").classList.remove("active");
+  document.getElementById(pageId).classList.add("active");
+}
+
+function openPassword(){
+  showPage("passwordPage");
+}
+
+function checkPassword(){
+  let pass = document.getElementById("passwordBox").value;
+
+  if(pass === password){
+    document.getElementById("passMsg").style.color = "#00ff99";
+    document.getElementById("passMsg").innerText = "✅ PASSWORD CONFIRMED";
+    showPage("editorPage");
+  }else{
+    document.getElementById("passMsg").style.color = "red";
+    document.getElementById("passMsg").innerText = "❌ WRONG PASSWORD";
+  }
 }
 
 function backHome(){
-  document.getElementById("editorPage").classList.remove("active");
-  document.getElementById("homePage").classList.add("active");
+  showPage("homePage");
 }
 
 function updateConfig(){
   let data = document.getElementById("configBox").value;
-
   localStorage.setItem("vpn_config_data", data);
   document.getElementById("serverConfig").innerText = data;
-
   document.getElementById("msg").style.color = "#00ff99";
   document.getElementById("msg").innerText = "✅ CONFIG UPDATED SUCCESSFULLY";
 }
 
 function copyConfig(){
   let data = document.getElementById("configBox").value;
-
   navigator.clipboard.writeText(data);
-
   document.getElementById("msg").style.color = "#00ff99";
   document.getElementById("msg").innerText = "✅ CONFIG COPIED SUCCESSFULLY";
+}
+
+function copyRaw(){
+  navigator.clipboard.writeText(raw);
+  document.getElementById("homeMsg").style.color = "#00ff99";
+  document.getElementById("homeMsg").innerText = "✅ RAW LINK COPIED";
 }
 </script>
 
