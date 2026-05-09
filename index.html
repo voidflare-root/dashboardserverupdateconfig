@@ -1,409 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VPN UPDATE PANEL</title>
+<title>GHOSTxTunnel Download</title>
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
 }
 
 body{
-background:linear-gradient(160deg,#050014,#18002e,#050014);
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-color:white;
+  background:#07070b;
+  color:white;
 }
 
-.phone{
-width:360px;
-min-height:720px;
-background:#0b0614;
-border-radius:35px;
-padding:20px;
-border:2px solid #ff2bd6;
-box-shadow:0 0 35px #ff2bd6;
+.hero{
+  min-height:100vh;
+  padding:25px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top left,#ff149355,transparent 35%),
+    radial-gradient(circle at bottom right,#ff149333,transparent 35%),
+    #07070b;
 }
 
-.logo{
-width:90px;
-height:90px;
-border-radius:50%;
-background:linear-gradient(135deg,#ff2bd6,#7b2cff);
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:42px;
-margin:auto;
-box-shadow:0 0 25px #ff2bd6;
+.banner{
+  width:100%;
+  max-width:1100px;
+  border-radius:22px;
+  margin:20px auto;
+  display:block;
+  box-shadow:0 0 35px #ff149370;
+  border:1px solid #ff1493;
 }
 
 h1{
-text-align:center;
-margin-top:15px;
-font-size:24px;
+  font-size:38px;
+  margin-top:25px;
 }
 
-.sub{
-text-align:center;
-color:#b8a8c9;
-margin-top:5px;
-font-size:13px;
+h1 span{
+  color:#ff1493;
 }
 
-.card{
-margin-top:25px;
-background:#14091f;
-border:1px solid #ff2bd6;
-border-radius:22px;
-padding:18px;
+.tagline{
+  margin-top:10px;
+  font-size:18px;
+  color:#ddd;
 }
 
-.title{
-color:#ff4fe0;
-margin-bottom:10px;
-font-size:14px;
+.dev{
+  margin-top:12px;
+  color:#ff4fb0;
+  font-weight:bold;
 }
 
-input,textarea{
-width:100%;
-background:#1a1026;
-border:none;
-outline:none;
-padding:14px;
-border-radius:16px;
-color:#00ffcc;
-font-size:12px;
-margin-top:8px;
+.info{
+  max-width:700px;
+  margin:25px auto;
+  color:#ccc;
+  font-size:17px;
+  line-height:1.7;
 }
 
-textarea{
-height:320px;
-resize:none;
-white-space:pre-wrap;
+.download-box{
+  max-width:420px;
+  margin:30px auto;
+  background:#11131a;
+  border:1px solid #ff1493;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 0 25px #ff149360;
 }
 
-.btn{
-width:100%;
-padding:14px;
-border:none;
-border-radius:18px;
-margin-top:14px;
-font-weight:bold;
-background:linear-gradient(90deg,#ff2bd6,#7b2cff);
-color:white;
-box-shadow:0 0 18px #ff2bd6;
+.download-btn{
+  display:block;
+  padding:20px;
+  background:linear-gradient(135deg,#ff1493,#ff4fb0);
+  color:white;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:bold;
 }
 
-.msg{
-text-align:center;
-margin-top:15px;
-font-size:14px;
-color:#00ff99;
-word-break:break-all;
+.size{
+  padding:14px;
+  color:#ddd;
+  font-size:17px;
 }
 
-.small{
-margin-top:20px;
-background:#1a1026;
-padding:12px;
-border-radius:14px;
-font-size:11px;
-max-height:120px;
-overflow:auto;
-white-space:pre-wrap;
-word-break:break-all;
+.features{
+  max-width:850px;
+  margin:35px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.feature{
+  background:#11131a;
+  border:1px solid #333;
+  border-radius:18px;
+  padding:18px;
+  color:#ddd;
+}
+
+footer{
+  padding:25px;
+  color:#888;
+  text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<div class="phone">
+<div class="hero">
 
-<div class="logo">🛡️</div>
+  <!-- Yaha apna uploaded banner image ka name rakho -->
+  <img class="banner" src="banner.jpg" alt="GHOSTxTunnel App Banner">
 
-<h1>PIYUSH VPN GEN</h1>
+  <h1>GHOSTx<span>Tunnel</span></h1>
+  <p class="tagline">FAST | PRIVATE | SAFE VPN APP</p>
+  <p class="dev">Developer BY &gt; PIYUSH</p>
 
-<p class="sub">
-ONLINE SERVER UPDATE PANEL
-</p>
+  <p class="info">
+    GHOSTxTunnel ek fast aur secure VPN app hai jisme multiple servers,
+    private tunnel system aur clean pink-dark UI diya gaya hai.
+  </p>
 
-<div class="card">
+  <div class="download-box">
+    <!-- APK file ka name yaha app-release.apk rakho -->
+    <a class="download-btn" href="app-release.apk" download>
+      ⬇ Download APK
+    </a>
+    <div class="size">Version 1.0.0 | Size 40.5 MB</div>
+  </div>
 
-<div class="title">
-RAW LINK
-</div>
-
-<input type="text"
-id="rawLink"
-readonly>
-
-<button class="btn"
-onclick="copyRaw()">
-COPY RAW LINK
-</button>
-
-<div class="title"
-style="margin-top:20px;">
-PASSWORD
-</div>
-
-<input type="password"
-id="password"
-placeholder="Enter password">
-
-<div class="title"
-style="margin-top:20px;">
-GITHUB TOKEN
-</div>
-
-<input type="password"
-id="token"
-placeholder="Paste GitHub token">
-
-<div class="title"
-style="margin-top:20px;">
-CONFIG / JSON
-</div>
-
-<textarea id="config"></textarea>
-
-<button class="btn"
-onclick="updateServer()">
-UPDATE SERVER
-</button>
-
-<div class="msg"
-id="msg">
-</div>
-
-<div class="small"
-id="preview">
-Loading...
-</div>
+  <div class="features">
+    <div class="feature">🚀 High Speed Servers</div>
+    <div class="feature">🔒 Secure VPN</div>
+    <div class="feature">🌍 Multiple Servers</div>
+    <div class="feature">📡 SSH / UDP / V2Ray</div>
+  </div>
 
 </div>
 
-</div>
-
-<script>
-
-const PASSWORD = "ghostxtg";
-
-const OWNER = "voidflare-root";
-
-const REPO = "dashboardserverupdateconfig";
-
-const FILE_PATH = "servers.json";
-
-const BRANCH = "main";
-
-const RAW =
-"https://" +
-OWNER +
-".github.io/" +
-REPO +
-"/" +
-FILE_PATH;
-
-const API =
-"https://api.github.com/repos/" +
-OWNER +
-"/" +
-REPO +
-"/contents/" +
-FILE_PATH;
-
-document.getElementById("rawLink").value =
-RAW;
-
-let savedToken =
-localStorage.getItem("github_token");
-
-if(savedToken){
-document.getElementById("token").value =
-savedToken;
-}
-
-async function loadConfig(){
-
-try{
-
-let res =
-await fetch(
-RAW + "?t=" + Date.now()
-);
-
-let text =
-await res.text();
-
-document.getElementById("config").value =
-text;
-
-document.getElementById("preview").innerText =
-text;
-
-}catch(e){
-
-document.getElementById("preview").innerText =
-"Config load failed";
-
-}
-
-}
-
-function copyRaw(){
-
-navigator.clipboard.writeText(RAW);
-
-document.getElementById("msg").innerText =
-"✅ RAW LINK COPIED";
-
-}
-
-async function updateServer(){
-
-let pass =
-document.getElementById("password").value;
-
-if(pass !== PASSWORD){
-
-document.getElementById("msg").style.color =
-"red";
-
-document.getElementById("msg").innerText =
-"❌ WRONG PASSWORD";
-
-return;
-
-}
-
-let token =
-document.getElementById("token").value.trim();
-
-if(!token){
-
-document.getElementById("msg").style.color =
-"red";
-
-document.getElementById("msg").innerText =
-"❌ TOKEN REQUIRED";
-
-return;
-
-}
-
-localStorage.setItem(
-"github_token",
-token
-);
-
-let content =
-document.getElementById("config").value;
-
-try{
-
-document.getElementById("msg").style.color =
-"#00ff99";
-
-document.getElementById("msg").innerText =
-"Updating...";
-
-let getFile =
-await fetch(
-API + "?ref=" + BRANCH,
-{
-headers:{
-Authorization:
-"Bearer " + token,
-Accept:
-"application/vnd.github+json"
-}
-}
-);
-
-let fileData =
-await getFile.json();
-
-let update =
-await fetch(
-API,
-{
-method:"PUT",
-headers:{
-Authorization:
-"Bearer " + token,
-Accept:
-"application/vnd.github+json",
-"Content-Type":
-"application/json"
-},
-body:JSON.stringify({
-
-message:
-"VPN CONFIG UPDATE",
-
-content:
-btoa(
-unescape(
-encodeURIComponent(
-content
-)
-)
-),
-
-sha:fileData.sha,
-
-branch:BRANCH
-
-})
-}
-);
-
-if(update.ok){
-
-document.getElementById("msg").style.color =
-"#00ff99";
-
-document.getElementById("msg").innerText =
-"✅ SERVER UPDATED SUCCESSFULLY";
-
-document.getElementById("preview").innerText =
-content;
-
-}else{
-
-document.getElementById("msg").style.color =
-"red";
-
-document.getElementById("msg").innerText =
-"❌ UPDATE FAILED";
-
-}
-
-}catch(e){
-
-document.getElementById("msg").style.color =
-"red";
-
-document.getElementById("msg").innerText =
-"❌ ERROR";
-
-}
-
-}
-
-loadConfig();
-
-</script>
+<footer>
+  © 2026 GHOSTxTunnel | BY PIYUSH
+</footer>
 
 </body>
 </html>
