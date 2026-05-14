@@ -1,0 +1,22 @@
+{
+  "configPassword": "",
+  "configVersion": "1",
+  "networks": [],
+  "servers": [
+    {
+      "description": "",
+      "flag": "in",
+      "host": "gahbbb",
+      "id": "1778766764170",
+      "message": "",
+      "name": "IN SERVER",
+      "password": "fa",
+      "port": "80",
+      "proxyPort": "",
+      "slowDnsPort": "",
+      "sshPort": "80",
+      "sslPort": "",
+      "username": "da"
+    }
+  ]
+}
