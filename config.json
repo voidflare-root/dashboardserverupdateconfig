@@ -1,8 +1,7 @@
 {
-  "configPassword": "",
-  "configVersion": "1",
-  "networks": [],
-  "servers": [
+  "Networks": [],
+  "ReleaseNotes": "ㅤㅤㅤ◦•●◉✿ ᴡᴇʟᴄᴏᴍᴇ ✿◉●•◦\n▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▰\n\n❖ㅤㅤㅤHELLO USER.   !!\n\n❖ 𝙽𝙴𝚆 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 𝙸𝚂 𝙰𝚅𝙰𝙸𝙻𝙰𝙱𝙻𝙴. ❖\n\n❖ 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐆𝐇𝐎𝐒𝐓𝐱𝐓𝐮𝐧𝐧𝐞𝐥 ❖\n\n❖━━━───⚜FEEDBACK⚜───━━━❖ \n\n@PIYUSHxHELP_BOT\n\n❖━━━───⚜FEEDBACK⚜───━━━❖ \n\nJOIN MY TELIGRAM CHANNEL \n\nhttps://t.me/PYSGHOSTxTunnel\nhttps://t.me/PYSGHOSTxTunnel\nhttps://t.me/PYSGHOSTxTunnel\n\n!! 𝚃𝚄𝙽𝙽𝙴𝙻 𝚄𝙿𝙳𝙰𝚃𝙴 𝙽𝙾𝚆 !!\n\n❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ <\\> PIYUSH <\\>\n▰▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▰",
+  "Servers": [
     {
       "description": "",
       "flag": "in",
@@ -18,5 +17,6 @@
       "sslPort": "",
       "username": "da"
     }
-  ]
+  ],
+  "Version": "1.01"
 }
